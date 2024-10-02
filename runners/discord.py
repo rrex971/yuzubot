@@ -43,7 +43,7 @@ async def register(interaction: discord.Interaction):
 async def unregister(interaction: discord.Interaction, uid: str):
     if 1259845414119800922 in [x.id for x in interaction.user.roles]:
         uid=int(uid)
-        c.execute(f"delete from users where discordID = {id}")
+        c.execute(f"delete from users where discordID = {uid}")
         await interaction.response.send_message("Done.")
     else:
         await interaction.response.send_message("Insufficient permissions.", ephemeral=True)
