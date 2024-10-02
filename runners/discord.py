@@ -32,7 +32,7 @@ async def giveRoles(discord, user):
     await mem.add_roles(memRole)
     if user.country.code  != "IN":
         intlRole = guild.get_role(1290339364794269718)
-        await mem.add_role(intlRole)
+        await mem.add_roles(intlRole)
 
 @bot.tree.command(name="register", description="Registers and links your osu! profile to allow you access to the rest of the server!")
 async def register(interaction: discord.Interaction):
