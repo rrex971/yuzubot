@@ -39,6 +39,15 @@ async def register(interaction: discord.Interaction):
     authURL = auth.get_auth_url().split()[0]+f"&state={interaction.user.id}"
     await interaction.response.send_message(f"Log into your osu! profile to authenticate with yuzubot [here.]({authURL})", ephemeral=True)
 
+@bot.tree.command(name="unregister", description="(admin only) Unregisters a user from the bot.")
+async def unregister(interaction: discord.Interaction, uid: str):
+    if 1259845414119800922 in [x.id for x in interaction.user.roles]:
+        uid=int(uid)
+        c.execute(f"delete from users where discordID = {id}")
+        await interaction.response.send_message("Done.")
+    else:
+        await interaction.response.send_message("Insufficient permissions.", ephemeral=True)
+        
 @bot.tree.command(name="sendmessage_c", description="(admin only) Sends messages as yunabot")
 async def sendmessage_c(interaction: discord.Interaction, message: str, channel: str):
     print(interaction.user.roles)
