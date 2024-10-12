@@ -1,0 +1,25 @@
+@font-face{
+    font-family: Quicksand;
+    src: url(Quicksand-Regular.ttf)
+}
+
+body{
+    font-family: Quicksand;
+    background-color: rgb(2, 23, 23);
+    color: #e4fff6;
+    padding: 30px;
+}
+
+img{
+    width:80px;
+    display: inline;
+    
+}
+.bigtext{
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+.smalltext{
+    font-size:24px;
+}

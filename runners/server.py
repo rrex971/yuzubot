@@ -1,7 +1,7 @@
 import uvicorn
 import asyncio
 from fastapi import FastAPI
-from fastapi.responses import JSONResponse
+from fastapi.responses import HTMLResponse
 
 app = FastAPI()
 
@@ -9,7 +9,8 @@ app = FastAPI()
 async def get_code(code: str, state: int):
     print(code, state)
     asyncio.run_coroutine_threadsafe(userAuthenticate(bot, auth, code, state, c, db), loop)
-    return JSONResponse(content={"status": "poggers champion", "discord": state})
+    html_content=open('static/success.html')
+    return HTMLResponse(content=html_content.read())
 
 def run_server(loop1, auth1, bot1, userauth, cur, dab):
     global loop, auth, bot, userAuthenticate, c, db
